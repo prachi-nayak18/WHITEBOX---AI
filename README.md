@@ -59,8 +59,8 @@ Backend
 
 1. Clone the repository
 `bash
-git clone https://github.com/prachi-nayak18/HITEBOX---AI.git
-cd HITEBOX---AI
+git clone https://github.com/prachi-nayak18/WHITEBOX---AI
+cd WHITEBOX---AI
 2. Setup Backend
 cd backend
 npm install
