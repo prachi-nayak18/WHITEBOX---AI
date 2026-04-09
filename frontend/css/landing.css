@@ -1,0 +1,13 @@
+logo h1 {
+  font-size: 40px;
+}
+
+.logo p {
+  color: #aaa;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}

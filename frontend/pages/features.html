@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitebox AI | Features</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --bg: #000000; --card: #0a0a0a; --border: #1a1a1a; --accent: #fbbf24; }
+        body { background-color: var(--bg); color: white; font-family: 'Inter', sans-serif; }
+
+        /* 💎 Packed Card Layout */
+        .feature-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .feature-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+        /* Icon Styling */
+        .icon-box { font-size: 24px; margin-bottom: 16px; }
+
+        /* Free Badge */
+        .badge-free {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
+            width: fit-content;
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .back-btn { font-size: 11px; font-weight: 900; color: #555; text-transform: uppercase; letter-spacing: 1px; transition: 0.2s; }
+        .back-btn:hover { color: white; }
+    </style>
+</head>
+<body class="p-8 md:p-16">
+
+    <div class="max-w-6xl mx-auto">
+        <div class="flex items-center justify-between mb-12">
+            <div class="flex items-center gap-4">
+                <span class="text-2xl">⚡</span>
+                <h1 class="text-3xl font-black tracking-tighter uppercase">Features</h1>
+            </div>
+            <a href="index.html" class="back-btn">← Back</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div class="feature-card">
+                <div class="icon-box">💬</div>
+                <h3 class="font-bold text-lg mb-2">Text Q&A</h3>
+                <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+                    Ask anything — general knowledge, science, history, current events. Get clear and detailed answers instantly.
+                </p>
+                <div class="badge-free">✓ Free</div>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-box">💻</div>
+                <h3 class="font-bold text-lg mb-2">Code Solver</h3>
+                <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+                    Write, debug and explain code in any language — Python, JavaScript, HTML and more.
+                </p>
+                <div class="badge-free">✓ Free</div>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-box">🔢</div>
+                <h3 class="font-bold text-lg mb-2">Math AI</h3>
+                <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+                    Solve any math problem step by step — algebra, calculus, geometry, trigonometry, statistics.
+                </p>
+                <div class="badge-free">✓ Free</div>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-box">🌐</div>
+                <h3 class="font-bold text-lg mb-2">Multi Language</h3>
+                <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+                    Chat in English, Hindi/Hinglish, Arabic and Spanish. AI responds in your preferred language.
+                </p>
+                <div class="badge-free">✓ Free</div>
+            </div>
+  <div class="feature-card">
+                <div class="icon-box">⚡</div>
+                <h3 class="font-bold text-lg mb-2">Fast Responses</h3>
+                <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+                    Powered by Gemini 1.5 Flash — one of the fastest AI models available today for instant replies.
+                </p>
+                <div class="badge-free">✓ Free</div>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon-box">🔒</div>
+                <h3 class="font-bold text-lg mb-2">Private & Secure</h3>
+                <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+                    Your data stays on your device. No conversations are stored on servers. 100% encrypted.
+                </p>
+                <div class="badge-free">✓ Free</div>
+            </div>
+
+        </div>
+
+        <footer class="mt-20 text-center">
+            <p class="text-[9px] text-gray-800 tracking-[0.5em] uppercase font-black">Whitebox AI // Feature Suite</p>
+        </footer>
+    </div>
+<div id="google_translate_element" style="display:none;"></div>
+<script src="/frontend/js/language.js"></script>
+</body>
+</html>          

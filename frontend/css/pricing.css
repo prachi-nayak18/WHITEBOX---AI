@@ -1,0 +1,30 @@
+/* Pricing Section Container */
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+
+/* Individual Card */
+.pricing-card {
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.pricing-card:hover {
+    transform: translateY(-10px);
+    border-color: #007bff;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Price Text */
+.price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 15px 0;
+}

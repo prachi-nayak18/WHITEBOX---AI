@@ -1,0 +1,6 @@
+# Frontend Secrets
+frontend/js/config.js
+
+# Backend Secrets
+backend/.env
+node_modules/

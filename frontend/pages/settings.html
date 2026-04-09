@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitebox AI | Pro Settings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --bg: #000000; --card: #0a0a0a; --border: #1a1a1a; --text: #ffffff; --accent: #fbbf24; }
+        body.light-theme { --bg: #ffffff; --card: #f5f5f5; --border: #e5e5e5; --text: #000000; }
+        
+        body { background-color: var(--bg); color: var(--text); transition: 0.3s; font-family: 'Inter', sans-serif; }
+        .glass-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 24px; margin-bottom: 20px; }
+        
+        /* 📸 Circle Profile */
+        .profile-circle {
+            position: relative; width: 90px; height: 90px; border-radius: 50%;
+            border: 1px solid var(--border); overflow: hidden; cursor: pointer;
+        }
+        .profile-circle img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-overlay {
+            position: absolute; inset: 0; background: rgba(0,0,0,0.7);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: 0.2s; font-size: 10px; font-weight: bold; color: #fff;
+        }
+        .profile-circle:hover .profile-overlay { opacity: 1; }
+
+        /* 🔘 Custom Toggle Switch */
+        .switch-box { width: 44px; height: 22px; background: #222; border-radius: 20px; position: relative; cursor: pointer; }
+        .switch-box::before { content: ''; position: absolute; width: 16px; height: 16px; background: #fff; border-radius: 50%; top: 3px; left: 3px; transition: 0.3s; }
+        .switch-active { background: var(--text) !important; }
+        .switch-active::before { left: 25px; background: var(--bg) !important; }
+
+        /* Inputs */
+        input, select { background: transparent !important; color: var(--text) !important; border: 1px solid var(--border) !important; border-radius: 12px; width: 100%; padding: 12px; font-size: 14px; outline: none; }
+        input:focus { border-color: var(--accent) !important; }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <div class="max-w-2xl mx-auto">
+        <div class="flex items-center gap-3 mb-10">
+            <span class="text-2xl">⚙️</span>
+            <h1 class="text-2xl font-bold tracking-tight">Settings</h1>
+        </div>
+
+        <section class="glass-card">
+            <p class="text-[10px] text-gray-500 font-black tracking-widest uppercase mb-6">User Profile</p>
+            <div class="flex items-center gap-8">
+                <div class="profile-circle" onclick="document.getElementById('fileIn').click()">
+                    <img id="avatar" src="https://ui-avatars.com/api/?name=W&background=000&color=fff" alt="User">
+                    <div class="profile-overlay">CHOOSE PROFILE</div>
+                    <input type="file" id="fileIn" class="hidden" accept="image/*" onchange="preview(this)">
+                </div>
+                <div class="flex-1">
+                    <label class="text-[10px] text-gray-500 font-bold mb-2 block uppercase">Display Name</label>
+                    <input type="text" id="nameIn" placeholder="E.g. Whitebox AI">
+                </div>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="glass-card flex justify-between items-center">
+                <div>
+                    <h4 class="font-bold text-sm">Dark Mode</h4>
+                    <p class="text-[10px] text-gray-500">Toggle dark/light theme</p>
+                </div>
+                <div id="theme-switch" class="switch-box" onclick="toggleTheme()"></div>
+            </div>
+            <div class="glass-card flex justify-between items-center">
+        <div>
+                    <h4 class="font-bold text-sm">Notifications</h4>
+                    <p class="text-[10px] text-gray-500">Enable system alerts</p>
+                </div>
+                <div id="notify-switch" class="switch-box switch-active" onclick="toggleNotify()"></div>
+            </div>
+        </div>
+       <section class="glass-card">
+            <p class="text-[10px] text-gray-500 font-black tracking-widest uppercase mb-6">AI Configuration</p>
+            <div class="space-y-6">
+                <div>
+                    <label class="text-[10px] text-gray-500 font-bold mb-2 block uppercase">AI Model</label>
+                    <select id="modelIn">
+                        <option value="Gemini 1.5 Pro">Gemini 1.5 Pro (Advanced)</option>
+                        <option value="Gemini 1.5 Flash">Gemini 1.5 Flash (Fast)</option>
+                        <option value="Whitebox-Turbo">Whitebox-Turbo (Custom)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-[10px] text-gray-500 font-bold mb-2 block uppercase">Response Speed</label>
+                    <select id="speedIn">
+                        <option value="Fast">Fast (Optimized)</option>
+                        <option value="Normal">Balanced</option>
+                        <option value="Precise">Precise (Deep Analysis)</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <div class="flex flex-col gap-3">
+            <button onclick="save()" class="w-full bg-white text-black font-black py-4 rounded-xl hover:bg-[#fbbf24] transition-all uppercase tracking-widest text-xs">
+                Save All Changes
+            </button>
+            <button onclick="logout()" class="w-full border border-red-900/30 text-red-500 font-bold py-3 rounded-xl hover:bg-red-500/10 transition-all text-xs uppercase">
+                Log Out
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const isLight = document.body.classList.toggle('light-theme');
+            document.getElementById('theme-switch').classList.toggle('switch-active');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        }
+
+        function toggleNotify() {
+            const active = document.getElementById('notify-switch').classList.toggle('switch-active');
+            localStorage.setItem('notify', active);
+        }
+
+        function preview(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = e => {
+                    document.getElementById('avatar').src = e.target.result;
+                    localStorage.setItem('pic', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function save() {
+            localStorage.setItem('name', document.getElementById('nameIn').value);
+            localStorage.setItem('lang', document.getElementById('langIn').value);
+            localStorage.setItem('model', document.getElementById('modelIn').value);
+            localStorage.setItem('speed', document.getElementById('speedIn').value);
+            alert("SYSTEM SYNCED.");
+        }
+    function logout() {
+            if(confirm("Confirm Logout?")) {
+                localStorage.clear();
+                window.location.href = 'login.html'; 
+            }
+        }
+
+        window.onload = () => {
+            if(localStorage.getItem('pic')) document.getElementById('avatar').src = localStorage.getItem('pic');
+            if(localStorage.getItem('name')) document.getElementById('nameIn').value = localStorage.getItem('name');
+            if(localStorage.getItem('lang')) document.getElementById('langIn').value = localStorage.getItem('lang');
+            if(localStorage.getItem('theme') === 'light') toggleTheme();
+        }
+    </script>
+</body>
+</html         

@@ -1,0 +1,162 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #0a0a0a; /* Pure Dark */
+    color: #ffffff;
+    overflow: hidden;
+}
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 40px;
+}
+
+/* Header */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.logo {
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logout-btn {
+    background: transparent;
+    border: 1px solid #333;
+    color: #666;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    color: white;
+    border-color: white;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.badge {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #d4a373; /* Gold/Amber tone */
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+}
+
+.main-title {
+    font-size: 72px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+}
+
+.welcome-msg {
+    color: #888;
+    font-size: 18px;
+}
+
+#user-display-name {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stat-card {
+    background: #111;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #222;
+}
+
+.label {
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.stat-card h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.progress-container {
+    background: #222;
+    height: 4px;
+    border-radius: 2px;
+}
+
+.progress-bar {
+    background: #d4a373;
+    height: 100%;
+}
+
+.status-green {
+    color: #00ff88;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.sub-label {
+    color: #444;
+    font-size: 11px;
+}
+.action-area {
+    margin-top: 30px;
+}
+
+.primary-btn {
+    background-color: #ffffff; /* White background for dark theme contrast */
+    color: #000000;
+    border: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+    background-color: #f0f0f0;
+}
+
+.primary-btn .icon {
+    font-size: 18px;
+    color: #d4a373; /* Match your badge color */
+}

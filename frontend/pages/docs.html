@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitebox AI | Docs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --bg: #000000; --sidebar: #080808; --card: #0d0d0d; --border: #1a1a1a; --accent: #fbbf24; }
+        body { background-color: var(--bg); color: white; font-family: 'Inter', sans-serif; display: flex; margin: 0; }
+
+        /* ⬅️ Fixed Sidebar */
+        .sidebar {
+            width: 280px; height: 100vh; background: var(--sidebar);
+            border-right: 1px solid var(--border); position: fixed;
+            padding: 40px 24px; z-index: 100;
+        }
+
+        .nav-link {
+            font-size: 11px; font-weight: 800; color: #555;
+            text-transform: uppercase; letter-spacing: 1.5px;
+            padding: 12px 0; display: block; transition: 0.3s;
+        }
+        .nav-link:hover, .nav-link.active { color: white; }
+
+        /* 📖 Clean Content Area */
+        .main-content { margin-left: 280px; padding: 80px 60px; width: 100%; max-width: 1100px; }
+
+        /* Fix for Overlapping Text */
+        .hero-title { 
+            font-size: 48px; font-weight: 900; letter-spacing: -2px; 
+            line-height: 1.1; margin-bottom: 20px; color: white;
+        }
+        
+        .sub-label { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 12px; font-weight: 800; }
+
+        /* 💎 Step Cards */
+        .step-card {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 32px; margin-top: 40px; position: relative;
+        }
+        .step-tag {
+            background: var(--accent); color: black; font-size: 9px;
+            font-weight: 900; padding: 4px 10px; border-radius: 4px;
+            position: absolute; top: -12px; left: 24px;
+        }
+
+        .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; display: inline-block; margin-right: 8px; }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="mb-16">
+            <h1 class="text-xl font-black tracking-tighter">WHITEBOX AI</h1>
+            <p class="text-[8px] font-bold text-gray-600 uppercase tracking-widest mt-1">
+                <span class="status-dot"></span> System Online
+            </div>
+        </div>
+
+        <nav>
+            <a href="#" class="nav-link active">Introduction</a>
+            <a href="#" class="nav-link">Getting Started</a>
+            <a href="#" class="nav-link">Core Features</a>
+            <a href="#" class="nav-link">API Reference</a>
+            <a href="#" class="nav-link">Privacy Policy</a>
+            <a href="#" class="nav-link">Contact Support</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header>
+            <p class="sub-label">Official Guide</p>
+            <h1 class="hero-title">Whitebox AI<br>Documentation</h1>
+            <p class="text-gray-400 text-lg max-w-2xl leading-relaxed">
+                Master the interface designed for the next generation of creative intelligence.
+            </p>
+        </header>
+
+        <section class="step-card">
+            <span class="step-tag">STEP 01</span>
+            <h3 class="text-2xl font-bold mb-4">The Philosophy</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+                Whitebox is more than a chat app; it is a specialized environment for <b>Gemini 1.5 Pro</b>. 
+                It handles complex reasoning tasks with a minimalist, high-contrast aesthetic.
+            </p>
+        </section>
+
+        <section class="step-card">
+            <span class="step-tag">STEP 02</span>
+            <h3 class="text-2xl font-bold mb-6">Core Capabilities</h3>
+   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-white mb-2">⚡ Intelligence Control</h4>
+                    <p class="text-gray-500 text-[11px] leading-relaxed">Adjust AI Model and Response Speed directly from the settings panel for tailored performance.</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-white mb-2">🛠️ Integrated Toolbox</h4>
+                    <p class="text-gray-500 text-[11px] leading-relaxed">A native suite of tools for word counting, case conversion, and developer utilities.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>         

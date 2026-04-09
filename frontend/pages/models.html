@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitebox AI - Models</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0d0d0d; color: white; font-family: 'Inter', sans-serif; }
+        .model-card:hover { border-color: #fbbf24; transform: translateY(-2px); }
+        .active-ring { border: 2px solid #fbbf24 !important; }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <div class="max-w-4xl mx-auto flex items-center mb-10">
+        <a href="index.html" class="text-gray-500 hover:text-white flex items-center gap-2 transition">
+            <span>←</span> Back
+        </a>
+        <h1 class="text-2xl font-bold ml-8 flex items-center gap-3">
+            <span class="text-2xl">🧠</span> AI Models
+        </h1>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+        
+        <section class="mb-12">
+            <div id="active-banner" class="bg-[#1a1a1a] border border-gray-800 rounded-2xl p-8 mb-6 shadow-2xl transition-all duration-300">
+                <div class="flex items-center gap-6">
+                    <div id="active-icon" class="text-yellow-500 text-4xl animate-pulse">⚡</div>
+                    <div>
+                        <h2 id="active-name" class="text-2xl font-bold tracking-tight">gemini-1.5-pro</h2>
+                        <p id="active-status" class="text-gray-400 text-sm mt-1">Currently active — Optimized for reasoning</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-[#161616] border border-gray-800 p-5 rounded-xl text-center">
+                    <div id="stat-version" class="text-2xl font-mono font-bold text-white">1.5</div>
+                    <div class="text-[10px] uppercase tracking-widest text-gray-500 mt-2">Version</div>
+                </div>
+                <div class="bg-[#161616] border border-gray-800 p-5 rounded-xl text-center">
+                    <div class="text-yellow-500 text-2xl flex justify-center">⚡</div>
+                    <div class="text-[10px] uppercase tracking-widest text-gray-500 mt-2">Speed</div>
+                </div>
+                <div class="bg-[#161616] border border-gray-800 p-5 rounded-xl text-center">
+                    <div id="stat-tokens" class="text-2xl font-mono font-bold text-white">2M</div>
+                    <div class="text-[10px] uppercase tracking-widest text-gray-500 mt-2">Tokens</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="text-gray-500 text-[11px] uppercase tracking-[0.2em] mb-6 font-bold">Available Models</h3>
+            
+            <div class="space-y-4" id="model-list">
+                
+                <div onclick="selectModel('gemini-1.5-flash', '⚡', 'Fastest model — best for quick responses', '1.5', '1M')" 
+                     class="model-card group bg-[#111] border border-gray-800 p-6 rounded-2xl cursor-pointer transition-all">
+                    <div class="flex items-center gap-5">
+                        <div class="text-yellow-500 text-2xl group-hover:scale-110 transition">⚡</div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-lg">gemini-1.5-flash</h4>
+                            <p class="text-gray-400 text-sm">Best for daily tasks and speed-intensive queries.</p>
+                            <div class="flex gap-2 mt-4">
+                                <span class="bg-gray-900 border border-gray-800 text-[10px] px-3 py-1 rounded-full text-gray-400">⚡ Fast</span>
+                                <span class="bg-gray-900 border border-gray-800 text-[10px] px-3 py-1 rounded-full text-gray-400">1M Tokens</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+ <div onclick="selectModel('gemini-1.5-pro', '🧠', 'Most powerful — best for complex analysis', '1.5', '2M')" 
+                     class="model-card group bg-[#111] border border-gray-800 p-6 rounded-2xl cursor-pointer transition-all">
+                    <div class="flex items-center gap-5">
+                        <div class="text-pink-500 text-2xl group-hover:scale-110 transition">🧠</div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-lg">gemini-1.5-pro</h4>
+                            <p class="text-gray-400 text-sm">Deep reasoning, long context, and expert coding.</p>
+                            <div class="flex gap-2 mt-4">
+                                <span class="bg-gray-900 border border-gray-800 text-[10px] px-3 py-1 rounded-full text-gray-400">🔥 Powerful</span>
+                                <span class="bg-gray-900 border border-gray-800 text-[10px] px-3 py-1 rounded-full text-gray-400">2M Tokens</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="selectModel('gemini-2.0-flash', '🚀', 'Next-gen speed and quality', '2.0', '1M')" 
+                     class="model-card group bg-[#111] border border-gray-800 p-6 rounded-2xl cursor-pointer transition-all">
+                    <div class="flex items-center gap-5">
+                        <div class="text-blue-500 text-2xl group-hover:scale-110 transition">🚀</div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-lg">gemini-2.0-flash</h4>
+                            <p class="text-gray-400 text-sm">The latest experimental model with cutting-edge tech.</p>
+                            <div class="flex gap-2 mt-4">
+                                <span class="bg-gray-900 border border-gray-800 text-[10px] px-3 py-1 rounded-full text-gray-400">New</span>
+                                <span class="bg-gray-900 border border-gray-800 text-[10px] px-3 py-1 rounded-full text-gray-400">Experimental</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function selectModel(name, icon, status, version, tokens) {
+            // Update UI elements
+            document.getElementById('active-name').innerText = name;
+            document.getElementById('active-icon').innerText = icon;
+            document.getElementById('active-status').innerText = 'Currently active — ' + status;
+            document.getElementById('stat-version').innerText = version;
+            document.getElementById('stat-tokens').innerText = tokens;
+
+            // Optional: Save selection to localStorage so it stays active after refresh
+            localStorage.setItem('selectedModel', name);
+            
+            // Visual feedback for clicking
+            const banner = document.getElementById('active-banner');
+            banner.classList.add('scale-[1.02]');
+            setTimeout(() => banner.classList.remove('scale-[1.02]'), 200);
+        }
+    </script>
+</body>
+</html>               

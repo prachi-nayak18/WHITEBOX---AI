@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Whitebox AI</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <header class="top-nav">
+            <div class="logo">WHITEBOX</div>
+            <button onclick="handleLogout()" class="logout-btn">Logout</button>
+        </header>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <div class="badge">GEMINI 1.5 PRO ACTIVE</div>
+                <h1 class="main-title">Whitebox AI</h1>
+                <p class="welcome-msg">Welcome back, <span id="user-display-name">Architect</span>. Your workspace is ready.</p>
+                <div class="action-area">
+                <button id="start-chat-btn" class="primary-btn">
+                <span class="icon">✦</span> Start New Chat
+                </button>
+               </div>
+            </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="label">TOKEN USAGE</span>
+                    <h2 id="token-count">42.8K</h2>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 65%;"></div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span class="label">AI RESPONSE TIME</span>
+                    <h2>0.8s</h2>
+                    <span class="status-green">● EXTREMELY FAST</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="label">ACTIVE SESSIONS</span>
+                    <h2 id="session-count">12</h2>
+                    <span class="sub-label">SYNCING ACROSS DEVICES...</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/config.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

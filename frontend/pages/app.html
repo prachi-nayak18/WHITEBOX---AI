@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whitebox AI - Free Mode</title>
+  <link rel="stylesheet" href="/frontend/css/app.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+   <div class="sidebar">
+
+   <div class="menu-wrapper">
+    <!-- Three-dot button -->
+    <button class="menu-btn">⋮</button>
+
+    <!-- Dropdown menu (initially hidden) -->
+    <div class="dropdown">
+      <button onclick="newChat()">➕ New Chat</button>
+      <button onclick="openHistory()">🕘 History</button>
+      <hr>
+      <button onclick="openFeatures()">⚡ Features</button>
+      <button onclick="openModels()">🧠 AI Models</button>
+      <button onclick="openTools()">🛠 Tools</button>
+      <button onclick="openDevelopers()">💻 Developers</button>
+      <hr>
+      <button onclick="openDocs()">📄 Docs</button>
+      <hr>
+      <button onclick="toggleTheme()">🌙 Dark Mode</button>
+      <button onclick="openSettings()">⚙️ Settings</button>
+      <button onclick="openAccount()">👤 Account</button>
+    </div>
+  </div>
+</div>
+  <!-- Main Content -->
+  <div class="main">
+    <!-- Center Logo -->
+    <div class="center">
+      <img src="/frontend/assets/images/logo.jpeg" class="logo" alt="Whitebox AI Logo">
+      <h1>WHITEBOX AI</h1>
+    </div>
+  <div id="suggestions" class="suggestions-container">
+  
+  <div class="chip" onclick="setQuery('Write a JavaScript function to...')">
+    <span>✨</span> Write a Code
+  </div>
+  
+  <div class="chip" onclick="setQuery('Summarize this text: ')">
+    <span>📝</span> Summarize Text
+  </div>
+  
+  <div class="chip" onclick="setQuery('Brainstorm 5 creative ideas for...')">
+    <span>💡</span> Brainstorm Ideas
+  </div>
+  
+  <div class="chip" onclick="setQuery('Draft a professional email for...')">
+    <span>📧</span> Draft an Email
+  </div>
+  
+  <div class="chip" onclick="setQuery('Give me some project ideas for...')">
+    <span>🚀</span> Project Ideas
+  </div>
+  
+  <div class="chip" onclick="setQuery('I want to think deeply about...')">
+    <span>🧠</span> Thinking
+  </div>
+
+ </div>
+  <!-- Chat Input Form -->
+  <form id="chatForm" class="chat-bar">
+  <div class="attach-wrapper">
+  <button type="button" class="attach-btn" onclick="toggleAttachMenu()">📎</button>
+  <div class="attach-menu" id="attachMenu" style="display:none;">
+    <button type="button" onclick="openGallery()">🖼️ Gallery</button>
+    <button type="button" onclick="openCamera()">📷 Camera</button>
+    <button type="button" onclick="openFiles()">📁 Files</button>
+  </div>
+</div>
+
+<!-- Hidden inputs -->
+<input type="file" id="galleryInput" accept="image/*" style="display:none" onchange="handleFile(event)">
+<input type="file" id="cameraInput" accept="image/*" capture="environment" style="display:none" onchange="handleFile(event)">
+<input type="file" id="fileInput" accept="*/*" style="display:none" onchange="handleFile(event)">
+  <input type="text" id="userInput" placeholder="Message Whitebox..." />
+  <button type="submit">➤</button>
+  <button id="micBtn" class="gemini-mic">🎤</button>
+  </form>
+ 
+ <!-- JS Scripts -->
+   <script src="/frontend/js/chat.js"></script>
+  <script src="/frontend/js/app.js"></script>
+  <script src="/frontend/js/language.js"></script>
+  <script>
+   document.getElementById("chatForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const text = document.getElementById("userInput").value.trim();
+  if (!text) return;
+  localStorage.setItem("firstMessage", text);
+  const currentLang = localStorage.getItem("appLanguage") || "English";
+    console.log("App language set to:", currentLang);
+  window.location.href = "chat.html";
+});
+// ====== NAVIGATION FUNCTIONS ======
+function openSettings()  { window.location.href = "settings.html"; }
+function openFeatures()  { window.location.href = "features.html"; }
+function openModels()    { window.location.href = "models.html"; }
+function openTools()     { window.location.href = "tools.html"; }
+function openDevelopers() { window.location.href = "developers.html"; }
+function openDocs()      { window.location.href = "docs.html"; }
+function openHistory()   { window.location.href = "history.html"; }
+function openAccount()   { window.location.href = "login.html"; }
+function newChat()       { window.location.href = "chat.html"; }
+// ====== ATTACH MENU ======
+function toggleAttachMenu() {
+  const menu = document.getElementById('attachMenu');
+  menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+}
+
+function openGallery() {
+  document.getElementById('galleryInput').click();
+  document.getElementById('attachMenu').style.display = 'none';
+}
+
+function openCamera() {
+  document.getElementById('cameraInput').click();
+  document.getElementById('attachMenu').style.display = 'none';
+}
+
+function openFiles() {
+  document.getElementById('fileInput').click();
+  document.getElementById('attachMenu').style.display = 'none';
+}
+
+function handleFile(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  alert('File selected: ' + file.name + '\n(Image AI coming soon!)');
+}
+
+// Close menu on outside click
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.attach-wrapper')) {
+    const menu = document.getElementById('attachMenu');
+    if (menu) menu.style.display = 'none';
+  }
+});
+</script>
+</body>
+</html>

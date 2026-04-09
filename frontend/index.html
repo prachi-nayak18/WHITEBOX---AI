@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whitebox AI | Next-Gen Intelligence</title>
+    <link rel="stylesheet" href="css/dashboard.css"> 
+    <style>
+        .hero-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            text-align: center;
+        }
+        .tagline {
+            color: #888;
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        .cta-group {
+            display: flex;
+            gap: 20px;
+        }
+        .secondary-btn {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #333;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .secondary-btn:hover {
+            border-color: #fff;
+        }
+        a.primary-btn {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <nav class="navbar">
+            <div class="logo">WHITEBOX</div>
+            <div class="nav-links">
+                <a href="pages/login.html">Sign In</a>
+            </div>
+        </nav>
+
+        <main class="hero-main">
+            <div class="badge">BETA ACCESS AVAILABLE</div>
+            <h1 class="main-title">Whitebox AI</h1>
+            <p class="tagline">
+                The ultimate workspace for deep reasoning, creative engineering, and high-performance AI collaboration.
+            </p>
+            
+            <div class="cta-group">
+                <a href="pages/login.html" class="primary-btn">
+                    <span class="icon">✦</span> Get Started Free
+                </a>
+                <a href="#" class="secondary-btn">View Capabilities</a>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    
+    <script>
+    // Firebase initialization check
+    firebase.initializeApp(window.WhiteboxConfig.FIREBASE);
+
+    const startBtn = document.querySelector('.primary-btn');
+
+    startBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Default link behavior roko
+        
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                // Agar user logged in hai, toh seedha Dashboard
+                window.location.href = "pages/dashboard.html";
+            } else {
+                // Agar nahi hai, toh Login page
+                window.location.href = "pages/login.html";
+            }
+        });
+    });
+</script>
+</body>
+</html>

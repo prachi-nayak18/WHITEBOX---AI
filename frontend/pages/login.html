@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whitebox AI</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/frontend/css/login.css">
+</head>
+
+<body>
+<!-- Toggle button: top-right corner -->
+  <button id="theme-toggle" style="position: absolute; top: 20px; right: 20px; padding: 8px 12px; border-radius: 8px; border: 1px solid #fff; background: #111; color: #fff; cursor: pointer;">
+    Switch Theme
+  </button>
+
+<div class="main">
+<div id="google_translate_element" style="display:none;"></div>
+  
+  <!-- Logo -->
+  <div class="logo-box">
+  <img src="/frontend/assets/images/logo.jpeg" class="logo-img">
+    <h1>Whitebox AI</h1>
+    <p>Your intelligent assistant — ask anything</p>
+    <p>Create a free account to get started</p>
+  </div>
+<!-- Tabs -->
+  <div class="auth-buttons">
+<div style="display: flex; gap: 10px; justify-content: center; margin: 15px auto; max-width: 320px;">
+    
+    <button onclick="goToSignIn()" class="theme-btn primary-btn" style="
+        flex: 1; 
+        padding: 10px 0; 
+        border-radius: 8px; 
+        font-weight: 600; 
+        cursor: pointer; 
+        font-size: 14px;
+        transition: 0.3s;
+        border: none;">
+        Sign In
+    </button>
+
+    <button onclick="goToSignUp()" class="theme-btn secondary-btn" style="
+        flex: 1; 
+        background: transparent; 
+        padding: 10px 0; 
+        border-radius: 8px; 
+        font-weight: 600; 
+        cursor: pointer; 
+        font-size: 14px;
+        transition: 0.3s;">
+        Sign Up
+    </button>
+</div>
+
+<style>
+    /* Default: Dark Theme Settings */
+    .primary-btn {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+    .secondary-btn {
+        color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    }
+
+    /* Light Theme Settings (Automatically Detects) */
+    @media (prefers-color-scheme: light) {
+        .primary-btn {
+            background: #000000 !important;
+            color: #ffffff !important;
+        }
+        .secondary-btn {
+            color: #000000 !important;
+            border: 1px solid rgba(0, 0, 0, 0.4) !important;
+        }
+    }
+</style>
+
+  <!-- Social Buttons -->
+<div class="social">
+
+  <!-- Google -->
+  <button id="googleBtn" class="google">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
+    Continue with Google
+  </button>
+
+  <!-- iOS -->
+  <button id="iosBtn" class="apple">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg">
+    Continue with iOS
+  </button>
+
+</div>
+ <!-- OR -->
+  <div class="or">
+    <span></span> OR <span></span>
+  </div>
+
+  <!-- Form -->
+<div class="form">
+  <label id="emailLabel">EMAIL ADDRESS</label>
+  <input type="email" placeholder="you@example.com">
+
+  <label id="passwordLabel">PASSWORD</label>
+  <input type="password" placeholder="••••••••">
+
+  <button id="loginBtn" class="login-btn" onclick="loginUser()">Sign In</button>
+</div>
+</div>
+
+<!-- JS -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/script.js"></script>
+</body>
+</html>

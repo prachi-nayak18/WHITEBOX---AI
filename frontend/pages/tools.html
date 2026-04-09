@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Advance Toolbox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --bg: #0b0b0b; --card: #121212; --border: #1e1e1e; --accent: #fbbf24; }
+        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; }
+        
+        /* Compact Grid Styling */
+        .tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        
+        .tool-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .section-title {
+            font-size: 8px; color: #444; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 1px;
+            margin: 20px 0 10px 0;
+        }
+
+        /* Input Styling */
+        textarea, input {
+            background: #000 !important;
+            border: 1px solid #222 !important;
+            color: #888 !important;
+            border-radius: 6px;
+            padding: 8px;
+            font-size: 11px;
+            width: 100%;
+            outline: none;
+        }
+
+        .btn-action {
+            background: #fff; color: #000;
+            font-size: 8px; font-weight: 900;
+            padding: 6px; border-radius: 4px;
+            text-transform: uppercase;
+            width: 100%; margin-top: 8px;
+        }
+        .btn-half { width: 48%; }
+
+        h3 { font-size: 11px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+    </style>
+</head>
+<body class="p-4">
+
+    <div class="max-w-7xl mx-auto">
+        <div class="flex items-center gap-2 mb-6">
+            <span class="text-lg">🛠️</span>
+            <h1 class="text-lg font-black tracking-tighter uppercase">Advanced Toolbox</h1>
+        </div>
+
+        <div class="section-title">Text & Content Utilities</div>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3>📝 Word Counter</h3>
+                <textarea class="h-14" placeholder="Paste..."></textarea>
+                <div class="flex justify-between items-center mt-2">
+                    <span class="text-[7px] text-gray-600 font-bold uppercase">Stats: 0/0</span>
+                    <button class="btn-action !w-auto px-4">Run</button>
+                </div>
+            </div>
+            <div class="tool-card">
+                <h3>Ab Case Converter</h3>
+                <div class="flex justify-between mb-1">
+                    <button class="btn-action btn-half !mt-0">Upper</button>
+                    <button class="btn-action btn-half !mt-0">Lower</button>
+                </div>
+                <button class="btn-action">Title Case</button>
+            </div>
+            <div class="tool-card">
+                <h3>📋 JSON Format</h3>
+                <textarea class="h-14" placeholder="Raw JSON..."></textarea>
+                <button class="btn-action">Format</button>
+            </div>
+            <div class="tool-card">
+                <h3>🖋️ Text Gen</h3>
+                <input type="text" placeholder="Paragraphs" class="mb-1">
+                <button class="btn-action">Generate</button>
+            </div>
+        </div>
+
+        <div class="section-title">Security & Dev Tools</div>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3>🔐 Password Gen</h3>
+                <div class="bg-black border border-[#222] p-2 rounded text-center text-[10px] text-gray-500 mb-1">****</div>
+                <button class="btn-action">Generate</button>
+        </div>
+            <div class="tool-card">
+                <h3>🔄 Base64</h3>
+                <input type="text" placeholder="Text..." class="mb-1">
+                <div class="flex justify-between">
+                    <button class="btn-action btn-half !mt-0">Enc</button>
+                    <button class="btn-action btn-half !mt-0">Dec</button>
+                </div>
+            </div>
+            <div class="tool-card">
+                <h3>🎨 Color Picker</h3>
+                <div class="h-8 w-full border border-[#222] rounded mb-1"></div>
+                <button class="btn-action">Copy Hex</button>
+            </div>
+            <div class="tool-card">
+                <h3>🔑 SHA-256</h3>
+                <input type="text" placeholder="Input..." class="mb-1">
+                <button class="btn-action">Hash It</button>
+            </div>
+        </div>
+
+        <div class="section-title">Image & Web Utility</div>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3>🖼️ Resizer</h3>
+                <input type="file" class="text-[8px]">
+                <button class="btn-action">Upload</button>
+            </div>
+            <div class="tool-card">
+                <h3>🔗 URL Short</h3>
+                <input type="text" placeholder="Long Link..." class="mb-1">
+                <button class="btn-action">Shorten</button>
+            </div>
+            <div class="tool-card">
+                <h3>📏 Unit Conv</h3>
+                <input type="text" placeholder="Value..." class="mb-1">
+                <button class="btn-action">Convert</button>
+            </div>
+            <div class="tool-card">
+                <h3>⚡ Minifier</h3>
+                <textarea class="h-14" placeholder="Code..."></textarea>
+                <button class="btn-action">Minify</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>        
